@@ -1,1 +1,79 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date Preferences</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(rgb(0, 249, 236), rgb(71, 150, 229));
+        }
+        .header_text {
+            font-family: "Nunito";
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .text {
+            font-family: "Times New Roman"; 
+            font-size: 30px; 
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-top: 30px; /* Increase spacing */
+            margin-bottom: 0px;
+        }
+        .btn {
+            background-color: blue;
+            color: white;
+            font-weight: 600;
+            padding: 20px 40px; 
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 3px 3px black;
+        }
+        .btn:hover {
+            background-color: #ffffff;
+            color: blue;
+        }
+        
+    </style>
+    <script>
+        function sendDataToWhatsApp() {
+            var day = document.getElementById('day').value;
+            var time = document.getElementById('time').value;
+            var place = document.getElementById('place').value;
+            var message = "I will love to come on " + day + " at " + time + " in " + place + " .I really wanna see you :)";
+            var whatsappUrl = "https://wa.me/919928043205?text=" + encodeURIComponent(message);
+            window.open(whatsappUrl);
+            return false; // Prevent form submission
+        }
+    </script>
+</head>
+<body>
+    <h1 class="header_text">Date Preferences</h1>
+    <form onsubmit="return sendDataToWhatsApp()">
+        <label for="day" class="text">Preferred Day:</label>
+        <input type="date" id="day" name="day"><br>
+        <label for="time" class="text">Preferred Time:</label>
+        <input type="time" id="time" name="time"><br>
+        <label for="place" class="text">Preferred Place:</label>
+        <input type="text" id="place" name="place"><br>
+        <div class="buttons">
+            <input type="submit" value="Submit" class="btn">
+        </div>
+    </form>
+</body>
+</html>
